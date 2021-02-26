@@ -1,5 +1,7 @@
 package cda.jee.modele;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,11 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cryptomonnaie {
-	private int idCryptoMonnaie;
-	private String nomCryptoMonnaie;
-	private String label;
-	private float prixActuel;
-	private boolean delta;	
-
+public class Portefeuille {
+	private int idPortefeuille;
+	private int NombreUnite;
+	private float prixAchat;
+	private LocalDate dateAchat;	
 }
