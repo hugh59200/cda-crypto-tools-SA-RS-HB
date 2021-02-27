@@ -14,7 +14,7 @@ import cda.jee.modele.Cryptomonnaie;
 
 public class CryptomonnaieDaoImp<T> implements CryptoMonnaieDao {
 
-//	private List<Cryptomonnaie> cryptomonnaies;
+	private List<Cryptomonnaie> cryptomonnaies;
 
 	public CryptomonnaieDaoImp() {
 
