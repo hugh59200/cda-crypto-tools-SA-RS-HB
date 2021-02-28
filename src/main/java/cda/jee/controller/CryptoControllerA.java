@@ -1,11 +1,6 @@
 package cda.jee.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,14 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cda.jee.connexion.MyConnection;
-import cda.jee.dao.CryptoMonnaieDao;
 import cda.jee.dao.impl.CryptomonnaieDaoImp;
 import cda.jee.modele.Cryptomonnaie;
-
-
-// protected CryptoMonnaieDao<T> crypt2;
-
 
 @WebServlet("/index.html")
 public class CryptoControllerA extends HttpServlet {
@@ -36,6 +25,7 @@ public class CryptoControllerA extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 	
 		List<Cryptomonnaie> cryptoMonnaie2 = new ArrayList<>();
 		cryptoMonnaie2 = crypt.affichageCrypto();
@@ -44,6 +34,13 @@ public class CryptoControllerA extends HttpServlet {
 		req.setAttribute("cryptoMonnaie2", cryptoMonnaie2);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/vue.jsp").forward(req, resp);
 		
+
+		List<Cryptomonnaie> cryptoMonnaie21 = new ArrayList<>();
+		cryptoMonnaie21 = crypt.affichageCrypto();
+				// this.affichageCrypto();
+		req.setAttribute("cryptoMonnaie2", cryptoMonnaie21);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/vue.jsp").forward(req, resp);
+
 	}
 //	@Override
 //	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
