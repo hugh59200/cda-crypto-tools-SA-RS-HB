@@ -13,7 +13,7 @@ public class MyConnection {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Properties appProps = new Properties();
-			appProps.load(MyConnection.class.getResourceAsStream("/conf/db.properties"));
+			appProps.load(MyConnection.class.getResourceAsStream("/db.properties"));
 			connexion = DriverManager.getConnection(
 					appProps.getProperty("url"), 
 					appProps.getProperty("username"),

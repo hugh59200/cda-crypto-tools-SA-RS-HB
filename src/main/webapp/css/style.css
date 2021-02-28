@@ -4,7 +4,7 @@ html {
   justify-content: center;
   color: black;
   background-color: white;
-  background-image: url("./imagesimage.jpg");
+  background-image: url("../images/image.jpg");
 }
 
 .container {
@@ -21,7 +21,7 @@ html {
   margin: auto;
   border: 5px solid black;
   padding: 10px;
-  background-image: url("./images/image2.jpg");
+  background-image: url("../images/image2.jpg");
 }
 
 header {
@@ -46,6 +46,7 @@ header {
   height: 90%;
   padding: 20px;
   margin: 10px;
+  overflow-y: scroll;
 }
 
 table {

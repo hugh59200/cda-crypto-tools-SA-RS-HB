@@ -34,45 +34,5 @@ public class CryptoControllerA extends HttpServlet {
 
 
 	}
-//	@Override
-//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		
-//	//	 CryptoMonnaieDao cryptomonnaieDaoImp;
-//		
-//		List<Cryptomonnaie> cryptoMonnaie2 = new ArrayList<>();
-////		cryptoMonnaie2 = this.CryptomonnaieDaoImp.
-//		PrintWriter pw = resp.getWriter();
-////		pw.print(affichageCrypto().);;	
-//		cryptoMonnaie2 =affichageCrypto();
-//		
-//		
-////		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/vue.jsp");
-////		requestDispatcher.forward(req, resp);
-//		
-//		req.setAttribute("listeCrypto", cryptoMonnaie2);
-//		this.getServletContext().getRequestDispatcher("/WEB-INF/vue.jsp").forward(req, resp);
-//		
-//	}
-	
-	// *********************************
 
-//	private List<Cryptomonnaie>  affichageCrypto() {
-//		List<Cryptomonnaie> cryptomonnaie = new ArrayList<>();
-//		Connection c = MyConnection.getConnection();
-//		if (c != null) {
-//			try {
-//				PreparedStatement statement = c.prepareStatement("AFFICHER_LISTE_CRYPTOMONNAIE");
-//				ResultSet r = statement.executeQuery();
-//
-//				while (r.next()) {
-//					cryptomonnaie.add(new Cryptomonnaie(r.getInt("Id_CryptoMonnaie"), r.getString("nom"), r.getString("label"), r.getFloat("prix_Actuel") ));			
-//				}
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		
-//		}
-//		return cryptomonnaie;
-//		
-//	}
 }
