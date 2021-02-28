@@ -13,8 +13,6 @@ import cda.jee.modele.Cryptomonnaie;
 
 public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 
-	private List<Cryptomonnaie> cryptomonnaies;
-
 	@Override
 	public List<Cryptomonnaie> affichageCrypto() {
 
@@ -22,11 +20,13 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 		Connection c = MyConnection.getConnection();
 		if (c != null) {
 			try {
-				PreparedStatement statement = c.prepareStatement("select * from CryptoMonnaie order by Id_CryptoMonnaie;");
+				PreparedStatement statement = c
+						.prepareStatement("select * from CryptoMonnaie order by Id_CryptoMonnaie;");
 				ResultSet r = statement.executeQuery();
 
 				while (r.next()) {
-					cryptomonnaie.add(new Cryptomonnaie(r.getInt("Id_CryptoMonnaie"), r.getString("nom"), r.getString("label"), r.getFloat("prix_Actuel")));			
+					cryptomonnaie.add(new Cryptomonnaie(r.getInt("Id_CryptoMonnaie"), r.getString("nom"),
+							r.getString("label"), r.getFloat("prix_Actuel")));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -34,7 +34,5 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 		}
 		return cryptomonnaie;
 	}
-
-
-	}
+}
 

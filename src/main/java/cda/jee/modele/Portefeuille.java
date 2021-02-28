@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Portefeuille {
 	private int idPortefeuille;
 	private int NombreUnite;

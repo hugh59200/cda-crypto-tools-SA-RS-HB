@@ -53,14 +53,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="a" items="${ cryptoMonnaie2 }" >
+						<c:forEach var="crypto" items="${ cryptoMonnaie }">
 							<tr>
-								<td><c:out value="${ a.idCryptoMonnaie }" />
-								</td>
-								<td><c:out value="${ a.nomCryptoMonnaie }" />
-								</td>
-								<td><c:out value="${ a.label }" /></td>
-								<td><c:out value="${ a.prixActuel }" /></td>
+								<td><c:out value="${ crypto.id }" /></td>
+								<td><c:out value="${ crypto.nom }" /></td>
+								<td><c:out value="${ crypto.label }" /></td>
+								<td><c:out value="${ crypto.prixActuel }" /></td>
 							</tr>
 						</c:forEach>
 

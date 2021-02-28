@@ -15,21 +15,18 @@ import cda.jee.modele.Cryptomonnaie;
 
 @WebServlet("/index.html")
 public class CryptoControllerA extends HttpServlet {
+	
 	private CryptomonnaieDaoImp crypt = new CryptomonnaieDaoImp();
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void init() throws ServletException {
-	}
-
-	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		List<Cryptomonnaie> cryptoMonnaie21 = new ArrayList<>();
-		cryptoMonnaie21 = crypt.affichageCrypto();
+		List<Cryptomonnaie> cryptoMonnaie = new ArrayList<>();
+		cryptoMonnaie = crypt.affichageCrypto();
 
-		req.setAttribute("cryptoMonnaie2", cryptoMonnaie21);
+		req.setAttribute("cryptoMonnaie", cryptoMonnaie);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/vue.jsp").forward(req, resp);
 
 
