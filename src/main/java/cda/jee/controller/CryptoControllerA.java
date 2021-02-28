@@ -24,7 +24,10 @@ public class CryptoControllerA extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		List<Cryptomonnaie> cryptoMonnaie = new ArrayList<>();
-		cryptoMonnaie = crypt.affichageCrypto();
+		
+		cryptoMonnaie = crypt.afficherCrypto();
+		
+		
 
 		req.setAttribute("cryptoMonnaie", cryptoMonnaie);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/vue.jsp").forward(req, resp);
