@@ -45,4 +45,23 @@ public class CryptomonnaieDaoImp<T> implements CryptoMonnaieDao {
 		return null;
 	}
 
-}
+
+		public List<Cryptomonnaie> affichageCrypto() {
+			List<Cryptomonnaie> cryptomonnaie = new ArrayList<>();
+			Connection c = MyConnection.getConnection();
+			if (c != null) {
+				try {
+					PreparedStatement statement = c.prepareStatement("AFFICHER_LISTE_CRYPTOMONNAIE");
+					ResultSet r = statement.executeQuery();
+					while (r.next()) {
+						cryptomonnaie.add(new Cryptomonnaie(r.getInt("Id_CryptoMonnaie"), r.getString("nom"), r.getString("label"), r.getFloat("prix_Actuel"), r.getBoolean("delta") ));			
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return cryptomonnaie;
+		}
+	}
+
+
