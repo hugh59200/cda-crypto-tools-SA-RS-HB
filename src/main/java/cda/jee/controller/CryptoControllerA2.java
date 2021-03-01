@@ -1,6 +1,7 @@
 package cda.jee.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import cda.jee.dao.CryptoMonnaieDao;
 import cda.jee.dao.impl.CryptomonnaieDaoImp;
 import cda.jee.modele.Cryptomonnaie;
 
-@WebServlet("/vue2")
+@WebServlet("/vue")
 public class CryptoControllerA2 extends HttpServlet {
 
 	private CryptoMonnaieDao cryptoMonnaieDao;
@@ -32,9 +33,11 @@ public class CryptoControllerA2 extends HttpServlet {
 		newCrypto.setNom(req.getParameter("nom"));
 		newCrypto.setLabel(req.getParameter("label"));
 		newCrypto.setPrixActuel(req.getParameter("prixActuel"));
-//		this.cryptoMonnaieDao.ajouterCrypto(newCrypto);
-
-		req.setAttribute("cryptList", Cryptomonnaie.getListCrypto().add(newCrypto));
+		this.cryptoMonnaieDao.ajouterCrypto(newCrypto);
+		
+		List recupList = Cryptomonnaie.getListCrypto();
+		
+		req.setAttribute("cryptList", recupList);
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/vue2.jsp").forward(req, resp);
 	}
