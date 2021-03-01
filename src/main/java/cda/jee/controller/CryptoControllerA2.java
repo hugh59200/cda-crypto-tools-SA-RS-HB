@@ -12,8 +12,8 @@ import cda.jee.dao.CryptoMonnaieDao;
 import cda.jee.dao.impl.CryptomonnaieDaoImp;
 import cda.jee.modele.Cryptomonnaie;
 
-@WebServlet("/")
-public class CryptoControllerA extends HttpServlet {
+@WebServlet("/vue2")
+public class CryptoControllerA2 extends HttpServlet {
 
 	private CryptoMonnaieDao cryptoMonnaieDao;
 
@@ -27,9 +27,15 @@ public class CryptoControllerA extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		this.cryptoMonnaieDao.afficherCrypto();
-		req.setAttribute("cryptoMonnaie", Cryptomonnaie.getListCrypto());
+		Cryptomonnaie newCrypto = new Cryptomonnaie();
+		new Cryptomonnaie().setId(Cryptomonnaie.getListCrypto().size() + 1);
+		newCrypto.setNom(req.getParameter("nom"));
+		newCrypto.setLabel(req.getParameter("label"));
+		newCrypto.setPrixActuel(req.getParameter("prixActuel"));
+//		this.cryptoMonnaieDao.ajouterCrypto(newCrypto);
 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/vue.jsp").forward(req, resp);
+		req.setAttribute("cryptList", Cryptomonnaie.getListCrypto().add(newCrypto));
+
+		this.getServletContext().getRequestDispatcher("/WEB-INF/vue2.jsp").forward(req, resp);
 	}
 }

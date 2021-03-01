@@ -53,7 +53,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="crypto" items="${ cryptoMonnaie }">
+						<c:forEach var="crypto" items="${ cryptList }">
 							<tr>
 								<td><c:out value="${ crypto.id }" /></td>
 								<td><c:out value="${ crypto.nom }" /></td>
@@ -71,7 +71,7 @@
 
 			</div>
 
-			<form action="vue" method="get">
+			<form action="vue2" method="get">
 				<div class="popupliste">
 					<div>
 						<p>Récapitulatif</p>
