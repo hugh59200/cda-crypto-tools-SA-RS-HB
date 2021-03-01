@@ -41,9 +41,9 @@ function gestionClic() {
 
 
 
-// clic -> recap liste
+// clic -> ajouter
 
-  $('.btnModifier').on('click', function () {
+  $('.btnAjouter').on('click', function () {
     $('.popupliste').show();
     $('.allCrypto').hide();
   })
