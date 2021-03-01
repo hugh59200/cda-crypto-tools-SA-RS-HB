@@ -71,29 +71,31 @@
 
 			</div>
 
-			<div class="popupliste">
-				<div>
-					<p>Récapitulatif</p>
-				</div>
-				<div class="input">
+			<form action="index.html" method="post">
+				<div class="popupliste">
 					<div>
-						<label for="cryptomonnaie">Nom</label> <input type="text"
-							name="quantite" id="quantite">
+						<p>Récapitulatif</p>
 					</div>
-					<div>
-						<label for="libelle">Libellé</label> <input type="number"
-							name="quantite" id="quantite">
+					<div class="input">
+						<div>
+							<label for="nom">Nom</label> <input type="text" id="nom"
+								name="nom" value="">
+						</div>
+						<div>
+							<label for="label">Libellé</label> <input type="text" id="label"
+								name="label" value="">
+						</div>
+						<div>
+							<label for="CoursActuel">Cours actuel</label> <input
+								type="text" id="CoursActuel" name="CoursActuel" value="">
+						</div>
 					</div>
-					<div>
-						<label for="cours">Cours actuel</label> <input type="number"
-							name="quantite" id="quantite">
+					<div class="boutonsliste">
+						<input type="submit" value="valider" class="valider"> <input
+							type="reset" value="annuler" class="annuler">
 					</div>
 				</div>
-				<div class="boutonsliste">
-					<button class="valider">valider</button>
-					<button class="annuler">annuler</button>
-				</div>
-			</div>
+			</form>
 
 			<div class="mesCryptos">
 				<table>

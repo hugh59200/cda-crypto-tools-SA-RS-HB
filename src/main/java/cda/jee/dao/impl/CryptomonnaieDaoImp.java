@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import cda.jee.connexion.MyConnection;
@@ -17,7 +16,7 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 	static final String UPDATE_CRYPTOMONNAIE = "update CryptoMonnaie set nom?,label=?, prix_Actuel=? where Id_CryptoMonnaie=?";
 	static final String DELETE_FROM_CRYPTOMONNAIE = "delete from CryptoMonnaie where Id_CryptoMonnaie=?";
 	static final String AJOUTER_UNE_CRYPTOMONNAIE = "insert into CryptoMonnaie (nom, label, prix_Actuel) VALUES (?,?,?);";
-	
+
 	@Override
 	public void ajouterCrypto(Cryptomonnaie crypto) {
 		Connection c = MyConnection.getConnection();
@@ -26,22 +25,19 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 				PreparedStatement statement = c.prepareStatement(AJOUTER_UNE_CRYPTOMONNAIE);
 				statement.setString(1, crypto.getNom());
 				statement.setString(2, crypto.getLabel());
-				statement.setFloat(3, crypto.getPrixActuel());
+				statement.setString(3, crypto.getPrixActuel());
 				statement.executeUpdate();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
+
 // ***************************************************************
-	
-	
-	
+
 	@Override
 	public List<Cryptomonnaie> afficherCrypto() {
 
-		List<Cryptomonnaie> cryptomonnaie = new ArrayList<>();
 		Connection c = MyConnection.getConnection();
 		if (c != null) {
 			try {
@@ -50,20 +46,18 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 				ResultSet r = statement.executeQuery();
 
 				while (r.next()) {
-					cryptomonnaie.add(new Cryptomonnaie(r.getInt("Id_CryptoMonnaie"), r.getString("nom"),
-							r.getString("label"), r.getFloat("prix_Actuel")));
+					Cryptomonnaie.getListCrypto().add(new Cryptomonnaie(r.getInt("Id_CryptoMonnaie"),
+							r.getString("nom"), r.getString("label"), r.getString("prix_Actuel")));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		return cryptomonnaie;
+		return Cryptomonnaie.getListCrypto();
 	}
-	
-	//****************************************************************
-	
-	
-	
+
+	// ****************************************************************
+
 	@Override
 	public boolean modifierCrypto(Cryptomonnaie crypto) {
 		boolean rowUpdated = false;
@@ -71,7 +65,7 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 			PreparedStatement statement = c.prepareStatement(UPDATE_CRYPTOMONNAIE);
 			statement.setString(1, crypto.getNom());
 			statement.setString(2, crypto.getLabel());
-			statement.setFloat(3, crypto.getPrixActuel());
+			statement.setString(3, crypto.getPrixActuel());
 			statement.setInt(4, crypto.getId());
 			rowUpdated = statement.executeUpdate() > 0;
 		} catch (SQLException e) {
@@ -79,12 +73,9 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 		}
 		return rowUpdated;
 	}
-	
-	
+
 	// ***************************************************************
-	
-	
-	
+
 	@Override
 	public boolean supprimerCrypto(int id) {
 		boolean rowUpdated = false;
@@ -98,4 +89,3 @@ public class CryptomonnaieDaoImp implements CryptoMonnaieDao {
 		return rowUpdated;
 	}
 }
-
