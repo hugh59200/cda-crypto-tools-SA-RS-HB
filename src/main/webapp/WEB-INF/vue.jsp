@@ -53,7 +53,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="crypto" items="${ cryptoMonnaie }">
+						<c:forEach var="crypto" items="${ cryptomonnaies }">
 							<tr>
 								<td><c:out value="${ crypto.id }" /></td>
 								<td><c:out value="${ crypto.nom }" /></td>
@@ -64,11 +64,14 @@
 
 					</tbody>
 				</table>
-
-				<div class="btnModifier">
-					<button>modifier</button>
+				<div class="btns">
+					<div class="btnAjouter">
+						<button>ajouter</button>
+					</div>
+					<div class="btnSupprimer">
+						<button>supprimer</button>
+					</div>
 				</div>
-
 			</div>
 
 			<form action="vue" method="get">
