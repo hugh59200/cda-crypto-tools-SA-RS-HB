@@ -12,7 +12,7 @@ import cda.jee.dao.CryptoMonnaieDao;
 import cda.jee.dao.impl.CryptomonnaieDaoImp;
 import cda.jee.modele.Cryptomonnaie;
 
-@WebServlet("/")
+@WebServlet("/index.html")
 public class CryptoControllerA extends HttpServlet {
 
 	private CryptoMonnaieDao cryptoMonnaieDao;
